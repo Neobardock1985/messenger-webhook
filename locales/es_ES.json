@@ -20,9 +20,13 @@
     "atencion": "Nuestro horario de atención es de 8:00 AM hasta las 12:00 PM Y de 1:00 PM hasta las 5:00 PM. \n ¿Deseas realizar otra consulta?.",
     "informacion": "Sigue el siguiente enlace para tener más información {{infoUrl}} \n ¿Deseas realizar otra consulta?",
     "lineaAtencion": "El número de la línea de atención es {{atencionNumber}} \n ¿Deseas consultar algo más?",
-    "finalizarChat": "Hasta luego, fue un placer ayudarte."
+    "finalizarChat": "Hasta luego, fue un placer ayudarte.",
+    "menuPrincipal": "respuestas.menuPrincipal"
   },
   "archivo": {
     "adjunto": "Gracias por enviar este archivo adjunto; podemos ponerte en contacto con un agente para que lo revise o podemos volver a empezar."
+  },
+  "error": {
+    "message": "Lo siento, pero no reconozco “{{message}}”."
   }
 }

@@ -24,5 +24,8 @@
   },
   "archivo": {
     "adjunto": "Gracias por enviar este archivo adjunto; podemos ponerte en contacto con un agente para que lo revise o podemos volver a empezar."
+  },
+  "error": {
+    "message": "Lo siento, pero no reconozco “{{message}}”."
   }
 }

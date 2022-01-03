@@ -126,7 +126,7 @@ module.exports = class Response {
 
   static genNuxMessage(user) {
     let welcome = this.genText(
-      i18n.__("chatome.intro", {
+      i18n.__("bot.intro", {
         userFirstName: user.firstName
       })
     );

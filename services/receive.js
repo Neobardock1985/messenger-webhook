@@ -25,9 +25,6 @@ module.exports = class Receive {
   // call the appropriate handler function
   handleMessage() {
     let event = this.webhookEvent;
-
-    console.log(event, "event");
-
     let responses;
 
     try {
@@ -54,15 +51,15 @@ module.exports = class Receive {
       };
     }
 
-    /*     if (Array.isArray(responses)) {
-          let delay = 0;
-          for (let response of responses) {
-            this.sendMessage(response, delay * 2000);
-            delay++;
-          }
-        } else {
-          this.sendMessage(responses);
-        } */
+    if (Array.isArray(responses)) {
+      let delay = 0;
+      for (let response of responses) {
+        this.sendMessage(response, delay * 2000);
+        delay++;
+      }
+    } else {
+      this.sendMessage(responses);
+    }
 
   }
 
@@ -78,21 +75,17 @@ module.exports = class Receive {
     // check greeting is here and is confident
     let greeting = this.firstEntity(event.message.nlp, "intro");
     let message = event.message.text.trim().toLowerCase();
-
     let response;
-
 
     if (
       (greeting && greeting.confidence > 0.8) ||
-      message.includes("start over")
+      message.includes("reiniciar")
     ) {
       response = Response.genNuxMessage(this.user);
-    } else if (message) {
-      response = Bot.handlePayload(message);
     } else {
       response = [
         Response.genText(
-          i18n.__("fallback.any", {
+          i18n.__("error.message", {
             message: event.message.text
           })
         ),
@@ -186,14 +179,22 @@ module.exports = class Receive {
     console.log("Received Payload:", `${payload} for ${this.user.psid}`);
 
     let response;
-
+    console.log(payload, "payload handlePayload");
     // Set the response based on the payload
     if (
-      payload === "GET_STARTED" ||
-      payload === "DEVDOCS" ||
-      payload === "GITHUB"
+      payload === "HOLA" ||
+      payload === "EMPEZAR" ||
+      payload === "INICIAR"
     ) {
+
       response = Response.genNuxMessage(this.user);
+
+    } else if (payload.includes("SOPORTE") || payload.includes("ATENCION") ||
+      payload.includes("INFORMACION") || payload.includes("LINEA_ATENCION") ||
+      payload.includes("MENU_PRINCIPAL") || payload.includes("FINALIZAR_CHAT")) {
+
+      response = Bot.handlePayload(payload);
+
     } else {
       response = {
         text: `This is a default postback message for payload: ${payload}!`
@@ -232,39 +233,39 @@ module.exports = class Receive {
     GraphApi.callSendApi(requestBody);
   }
 
-  /*   sendMessage(response, delay = 0) {
-      // Check if there is delay in the response
-      console.log(response, "sendMessage response");
-      if ("delay" in response) {
-        delay = response["delay"];
-        delete response["delay"];
-      }
-  
-      // Construct the message body
-      let requestBody = {
+  sendMessage(response, delay = 0) {
+    // Check if there is delay in the response
+    console.log(response, "sendMessage response");
+    if ("delay" in response) {
+      delay = response["delay"];
+      delete response["delay"];
+    }
+
+    // Construct the message body
+    let requestBody = {
+      recipient: {
+        id: this.user.psid
+      },
+      message: response
+    };
+
+    // Check if there is persona id in the response
+    if ("persona_id" in response) {
+      let persona_id = response["persona_id"];
+      delete response["persona_id"];
+
+      requestBody = {
         recipient: {
           id: this.user.psid
         },
-        message: response
+        message: response,
+        persona_id: persona_id
       };
-  
-      // Check if there is persona id in the response
-      if ("persona_id" in response) {
-        let persona_id = response["persona_id"];
-        delete response["persona_id"];
-  
-        requestBody = {
-          recipient: {
-            id: this.user.psid
-          },
-          message: response,
-          persona_id: persona_id
-        };
-      }
-  
-      setTimeout(() => GraphApi.callSendApi(requestBody), delay);
     }
-   */
+
+    setTimeout(() => GraphApi.callSendApi(requestBody), delay);
+  }
+
   firstEntity(nlp, name) {
     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
   }
