@@ -50,6 +50,15 @@ module.exports = class Bot {
 
         break;
 
+      case "MENU_PRINCIPAL":
+        response = Response.genQuickReply(i18n.__("menu.menuPrincipal"), [
+          {
+            title: i18n.__("respuestas.nuevaConsulta"),
+            payload: "NUEVA_CONSULTA"
+          }
+        ]);
+        break;
+
       case "LINEA_ATENCION":
         response = Response.genQuickReply(i18n.__("respuestas.lineaAtencion"), [
           {
@@ -69,6 +78,7 @@ module.exports = class Bot {
         ]);
 
         break;
+
 
     }
 
