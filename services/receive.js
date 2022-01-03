@@ -26,6 +26,8 @@ module.exports = class Receive {
   handleMessage() {
     let event = this.webhookEvent;
 
+    console.log(event, "event");
+
     let responses;
 
     try {
@@ -52,15 +54,16 @@ module.exports = class Receive {
       };
     }
 
-    if (Array.isArray(responses)) {
-      let delay = 0;
-      for (let response of responses) {
-        this.sendMessage(response, delay * 2000);
-        delay++;
-      }
-    } else {
-      this.sendMessage(responses);
-    }
+    /*     if (Array.isArray(responses)) {
+          let delay = 0;
+          for (let response of responses) {
+            this.sendMessage(response, delay * 2000);
+            delay++;
+          }
+        } else {
+          this.sendMessage(responses);
+        } */
+
   }
 
   // Handles messages events with text
@@ -229,38 +232,39 @@ module.exports = class Receive {
     GraphApi.callSendApi(requestBody);
   }
 
-  sendMessage(response, delay = 0) {
-    // Check if there is delay in the response
-    if ("delay" in response) {
-      delay = response["delay"];
-      delete response["delay"];
-    }
-
-    // Construct the message body
-    let requestBody = {
-      recipient: {
-        id: this.user.psid
-      },
-      message: response
-    };
-
-    // Check if there is persona id in the response
-    if ("persona_id" in response) {
-      let persona_id = response["persona_id"];
-      delete response["persona_id"];
-
-      requestBody = {
+  /*   sendMessage(response, delay = 0) {
+      // Check if there is delay in the response
+      console.log(response, "sendMessage response");
+      if ("delay" in response) {
+        delay = response["delay"];
+        delete response["delay"];
+      }
+  
+      // Construct the message body
+      let requestBody = {
         recipient: {
           id: this.user.psid
         },
-        message: response,
-        persona_id: persona_id
+        message: response
       };
+  
+      // Check if there is persona id in the response
+      if ("persona_id" in response) {
+        let persona_id = response["persona_id"];
+        delete response["persona_id"];
+  
+        requestBody = {
+          recipient: {
+            id: this.user.psid
+          },
+          message: response,
+          persona_id: persona_id
+        };
+      }
+  
+      setTimeout(() => GraphApi.callSendApi(requestBody), delay);
     }
-
-    setTimeout(() => GraphApi.callSendApi(requestBody), delay);
-  }
-
+   */
   firstEntity(nlp, name) {
     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
   }

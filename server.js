@@ -120,7 +120,10 @@ app.post("/webhook", (req, res) => {
                         console.log({ user });
                     }
                 }
-                i18n.setLocale(users[senderPsid].locale);
+                if (users[senderPsid] !== undefined) {
+
+                    i18n.setLocale(users[senderPsid].locale);
+                }
                 let receiveMessage = new Receive(users[senderPsid], webhookEvent);
                 return receiveMessage.handleMessage();
             });
