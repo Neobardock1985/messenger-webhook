@@ -12,8 +12,7 @@
 
 // Imports dependencies
 const Response = require("./response"),
-  i18n = require("../i18n.config"),
-  config = require("./config");
+  i18n = require("../i18n.config");
 
 module.exports = class Bot {
   static handlePayload(payload) {
@@ -27,7 +26,6 @@ module.exports = class Bot {
             payload: "NUEVA_CONSULTA"
           }
         ]);
-
         break;
 
       case "ATENCION":
@@ -37,7 +35,6 @@ module.exports = class Bot {
             payload: "NUEVA_CONSULTA"
           }
         ]);
-
         break;
 
       case "INFORMACION":
@@ -47,7 +44,6 @@ module.exports = class Bot {
             payload: "NUEVA_CONSULTA"
           }
         ]);
-
         break;
 
       case "MENU_PRINCIPAL":
@@ -66,7 +62,6 @@ module.exports = class Bot {
             payload: "NUEVA_CONSULTA"
           }
         ]);
-
         break;
 
       case "FINALIZAR_CHAT":
@@ -76,7 +71,6 @@ module.exports = class Bot {
             payload: "NUEVA_CONSULTA"
           }
         ]);
-
         break;
 
 
