@@ -116,14 +116,12 @@ app.post("/webhook", (req, res) => {
                     if (userProfile) {
                         user.setProfile(userProfile);
                         users[senderPsid] = user;
-                        console.log(`Created new user profile:`);
-                        console.log({ user });
+                        i18n.setLocale(users[senderPsid].locale);
+                        //console.log(`Created new user profile:`);
+                        //console.log({ user });
                     }
                 }
-                if (users[senderPsid] !== undefined) {
 
-                    i18n.setLocale(users[senderPsid].locale);
-                }
                 let receiveMessage = new Receive(users[senderPsid], webhookEvent);
                 return receiveMessage.handleMessage();
             });

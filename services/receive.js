@@ -149,6 +149,8 @@ module.exports = class Receive {
     // Get the payload of the quick reply
     let payload = this.webhookEvent.message.quick_reply.payload;
 
+    console.log(payload, "handleQuickReply");
+
     return this.handlePayload(payload);
   }
 
@@ -164,6 +166,8 @@ module.exports = class Receive {
       payload = postback.referral.ref;
     }
 
+    console.log(payload, "handlePostback");
+
     return this.handlePayload(payload.toUpperCase());
   }
 
@@ -171,15 +175,15 @@ module.exports = class Receive {
   handleReferral() {
     // Get the payload of the postback
     let payload = this.webhookEvent.referral.ref.toUpperCase();
-
+    console.log(payload, "handleReferral");
     return this.handlePayload(payload);
   }
 
   handlePayload(payload) {
-    console.log("Received Payload:", `${payload} for ${this.user.psid}`);
+    console.log("handlePayload:", `${payload} for ${this.user.psid}`);
 
     let response;
-    console.log(payload, "payload handlePayload");
+
     // Set the response based on the payload
     if (
       payload === "HOLA" ||
@@ -214,12 +218,28 @@ module.exports = class Receive {
 
     let response = Response.genQuickReply(welcomeMessage, [
       {
-        title: i18n.__("menu.menuAyuda"),
-        payload: "MENU_AYUDA"
+        title: i18n.__("menu.soporte"),
+        payload: "SOPORTE"
       },
       {
-        title: i18n.__("menu.reiniciar"),
-        payload: "MENU_REINICIAR"
+        title: i18n.__("menu.atencion"),
+        payload: "ATENCION"
+      },
+      {
+        title: i18n.__("menu.informacion"),
+        payload: "INFORMACION"
+      },
+      {
+        title: i18n.__("menu.lineaAtencion"),
+        payload: "LINEA_ATENCION"
+      },
+      {
+        title: i18n.__("menu.menuPrincipal"),
+        payload: "MENU_PRINCIPAL"
+      },
+      {
+        title: i18n.__("menu.finalizarChat"),
+        payload: "FINALIZAR_CHAT"
       }
     ]);
 
@@ -235,7 +255,6 @@ module.exports = class Receive {
 
   sendMessage(response, delay = 0) {
     // Check if there is delay in the response
-    console.log(response, "sendMessage response");
     if ("delay" in response) {
       delay = response["delay"];
       delete response["delay"];

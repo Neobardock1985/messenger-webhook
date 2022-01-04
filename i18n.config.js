@@ -13,11 +13,10 @@ const i18n = require("i18n"),
 
 i18n.configure({
   locales: [
-    "en_US",
     "es_ES",
     "es_LA"
   ],
-  defaultLocale: "es_LA",
+  defaultLocale: "es_ES",
   directory: path.join(__dirname, "locales"),
   objectNotation: true,
   api: {
