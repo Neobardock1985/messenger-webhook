@@ -22,7 +22,7 @@ module.exports = class Bot {
       case "SOPORTE":
         response = Response.genQuickReply(i18n.__("respuestas.soporte"), [
           {
-            title: i18n.__("respuestas.menuPrincipal"),
+            title: i18n.__("menu.principal"),
             payload: "MENU_PRINCIPAL"
           }
         ]);
@@ -31,7 +31,7 @@ module.exports = class Bot {
       case "ATENCION":
         response = Response.genQuickReply(i18n.__("respuestas.atencion"), [
           {
-            title: i18n.__("respuestas.menuPrincipal"),
+            title: i18n.__("menu.principal"),
             payload: "MENU_PRINCIPAL"
           }
         ]);
@@ -40,7 +40,7 @@ module.exports = class Bot {
       case "INFORMACION":
         response = Response.genQuickReply(i18n.__("respuestas.informacion"), [
           {
-            title: i18n.__("respuestas.menuPrincipal"),
+            title: i18n.__("menu.principal"),
             payload: "MENU_PRINCIPAL"
           }
         ]);
@@ -49,7 +49,7 @@ module.exports = class Bot {
       case "LINEA_ATENCION":
         response = Response.genQuickReply(i18n.__("respuestas.lineaAtencion"), [
           {
-            title: i18n.__("respuestas.menuPrincipal"),
+            title: i18n.__("menu.principal"),
             payload: "MENU_PRINCIPAL"
           }
         ]);
@@ -58,7 +58,7 @@ module.exports = class Bot {
       case "AGENTE":
         response = Response.genQuickReply(i18n.__("respuestas.agente"), [
           {
-            title: i18n.__("respuestas.menuPrincipal"),
+            title: i18n.__("menu.principal"),
             payload: "MENU_PRINCIPAL"
           }
         ]);
