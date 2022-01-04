@@ -9,9 +9,9 @@
     "atencion": "Horario de atención",
     "informacion": "Más información",
     "lineaAtencion": "¿Cuál es el número de la línea de atención?",
-    "menuPrincipal": "Regresar al menú principal",
+    "principal": "Regresar al menú principal",
     "agente": "Hablar con un agente",
-    "finalizarChat": "Hasta luego, fue un placer ayudarte."
+    "finalizarChat": "Finalizar chat"
   },
   "respuestas": {
     "nuevaConsulta": "¿Deseas realizar otra consulta?",

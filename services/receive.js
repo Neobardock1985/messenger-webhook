@@ -133,7 +133,7 @@ module.exports = class Receive {
     response = Response.genQuickReply(i18n.__("archivo.adjunto"), [
       {
         title: i18n.__("menu.agente"),
-        payload: "MENU_PRINCIPAL"
+        payload: "AGENTE"
       }
     ]);
 
@@ -210,7 +210,7 @@ module.exports = class Receive {
 
     let response = Response.genQuickReply(welcomeMessage, [
       {
-        title: i18n.__("respuestas.menuPrincipal"),
+        title: i18n.__("menu.principal"),
         payload: "MENU_PRINCIPAL"
       }
     ]);
