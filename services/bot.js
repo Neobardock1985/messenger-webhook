@@ -22,8 +22,8 @@ module.exports = class Bot {
       case "SOPORTE":
         response = Response.genQuickReply(i18n.__("respuestas.soporte"), [
           {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
+            title: i18n.__("respuestas.menuPrincipal"),
+            payload: "MENU_PRINCIPAL"
           }
         ]);
         break;
@@ -31,8 +31,8 @@ module.exports = class Bot {
       case "ATENCION":
         response = Response.genQuickReply(i18n.__("respuestas.atencion"), [
           {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
+            title: i18n.__("respuestas.menuPrincipal"),
+            payload: "MENU_PRINCIPAL"
           }
         ]);
         break;
@@ -40,17 +40,8 @@ module.exports = class Bot {
       case "INFORMACION":
         response = Response.genQuickReply(i18n.__("respuestas.informacion"), [
           {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
-          }
-        ]);
-        break;
-
-      case "MENU_PRINCIPAL":
-        response = Response.genQuickReply(i18n.__("menu.menuPrincipal"), [
-          {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
+            title: i18n.__("respuestas.menuPrincipal"),
+            payload: "MENU_PRINCIPAL"
           }
         ]);
         break;
@@ -58,21 +49,24 @@ module.exports = class Bot {
       case "LINEA_ATENCION":
         response = Response.genQuickReply(i18n.__("respuestas.lineaAtencion"), [
           {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
+            title: i18n.__("respuestas.menuPrincipal"),
+            payload: "MENU_PRINCIPAL"
+          }
+        ]);
+        break;
+
+      case "AGENTE":
+        response = Response.genQuickReply(i18n.__("respuestas.agente"), [
+          {
+            title: i18n.__("respuestas.menuPrincipal"),
+            payload: "MENU_PRINCIPAL"
           }
         ]);
         break;
 
       case "FINALIZAR_CHAT":
-        response = Response.genQuickReply(i18n.__("respuestas.finalizarChat"), [
-          {
-            title: i18n.__("respuestas.nuevaConsulta"),
-            payload: "NUEVA_CONSULTA"
-          }
-        ]);
+        response = Response.genText(i18n.__("respuestas.finalizarChat"));
         break;
-
 
     }
 

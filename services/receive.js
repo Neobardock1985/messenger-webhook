@@ -79,7 +79,7 @@ module.exports = class Receive {
 
     if (
       (greeting && greeting.confidence > 0.8) ||
-      message.includes("reiniciar")
+      message.includes("empezar")
     ) {
       response = Response.genNuxMessage(this.user);
     } else {
@@ -108,8 +108,8 @@ module.exports = class Receive {
             payload: "LINEA_ATENCION"
           },
           {
-            title: i18n.__("menu.menuPrincipal"),
-            payload: "MENU_PRINCIPAL"
+            title: i18n.__("menu.agente"),
+            payload: "AGENTE"
           },
           {
             title: i18n.__("menu.finalizarChat"),
@@ -132,12 +132,8 @@ module.exports = class Receive {
 
     response = Response.genQuickReply(i18n.__("archivo.adjunto"), [
       {
-        title: i18n.__("menu.menuAyuda"),
-        payload: "MENU_AYUDA"
-      },
-      {
-        title: i18n.__("menu.reiniciar"),
-        payload: "MENU_REINICIAR"
+        title: i18n.__("menu.agente"),
+        payload: "MENU_PRINCIPAL"
       }
     ]);
 
@@ -149,7 +145,7 @@ module.exports = class Receive {
     // Get the payload of the quick reply
     let payload = this.webhookEvent.message.quick_reply.payload;
 
-    console.log(payload, "handleQuickReply");
+    //console.log(payload, "handleQuickReply");
 
     return this.handlePayload(payload);
   }
@@ -166,7 +162,7 @@ module.exports = class Receive {
       payload = postback.referral.ref;
     }
 
-    console.log(payload, "handlePostback");
+    //console.log(payload, "handlePostback");
 
     return this.handlePayload(payload.toUpperCase());
   }
@@ -175,27 +171,23 @@ module.exports = class Receive {
   handleReferral() {
     // Get the payload of the postback
     let payload = this.webhookEvent.referral.ref.toUpperCase();
-    console.log(payload, "handleReferral");
+    //console.log(payload, "handleReferral");
     return this.handlePayload(payload);
   }
 
   handlePayload(payload) {
-    console.log("handlePayload:", `${payload} for ${this.user.psid}`);
+    console.log("Received Payload:", `${payload} for ${this.user.psid}`);
 
     let response;
 
     // Set the response based on the payload
-    if (
-      payload === "HOLA" ||
-      payload === "EMPEZAR" ||
-      payload === "INICIAR"
-    ) {
+    if (payload === "MENU_PRINCIPAL") {
 
       response = Response.genNuxMessage(this.user);
 
     } else if (payload.includes("SOPORTE") || payload.includes("ATENCION") ||
       payload.includes("INFORMACION") || payload.includes("LINEA_ATENCION") ||
-      payload.includes("MENU_PRINCIPAL") || payload.includes("FINALIZAR_CHAT")) {
+      payload.includes("AGENTE") || payload.includes("FINALIZAR_CHAT")) {
 
       response = Bot.handlePayload(payload);
 
@@ -218,28 +210,8 @@ module.exports = class Receive {
 
     let response = Response.genQuickReply(welcomeMessage, [
       {
-        title: i18n.__("menu.soporte"),
-        payload: "SOPORTE"
-      },
-      {
-        title: i18n.__("menu.atencion"),
-        payload: "ATENCION"
-      },
-      {
-        title: i18n.__("menu.informacion"),
-        payload: "INFORMACION"
-      },
-      {
-        title: i18n.__("menu.lineaAtencion"),
-        payload: "LINEA_ATENCION"
-      },
-      {
-        title: i18n.__("menu.menuPrincipal"),
+        title: i18n.__("respuestas.menuPrincipal"),
         payload: "MENU_PRINCIPAL"
-      },
-      {
-        title: i18n.__("menu.finalizarChat"),
-        payload: "FINALIZAR_CHAT"
       }
     ]);
 

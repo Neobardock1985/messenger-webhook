@@ -10,9 +10,8 @@
     "informacion": "Más información",
     "lineaAtencion": "¿Cuál es el número de la línea de atención?",
     "menuPrincipal": "Regresar al menú principal",
-    "finalizarChat": "Finalizar Chat",
-    "menuAyuda": "Ayuda",
-    "reiniciar": "Volver a empezar"
+    "agente": "Hablar con un agente",
+    "finalizarChat": "Hasta luego, fue un placer ayudarte."
   },
   "respuestas": {
     "nuevaConsulta": "¿Deseas realizar otra consulta?",
@@ -20,13 +19,13 @@
     "atencion": "Nuestro horario de atención es de 8:00 AM hasta las 12:00 PM Y de 1:00 PM hasta las 5:00 PM. \n ¿Deseas realizar otra consulta?.",
     "informacion": "Sigue el siguiente enlace para tener más información https://ticservice.org/portal/ \n ¿Deseas realizar otra consulta?",
     "lineaAtencion": "El número de la línea de atención es 3012345678 \n ¿Deseas consultar algo más?",
-    "finalizarChat": "Hasta luego, fue un placer ayudarte.",
-    "menuPrincipal": "respuestas.menuPrincipal"
+    "agente": "En un momento uno de nuestros agentes lo atenderá",
+    "finalizarChat": "Hasta luego, fue un placer ayudarte."
   },
   "archivo": {
     "adjunto": "Gracias por enviar este archivo adjunto; podemos ponerte en contacto con un agente para que lo revise o podemos volver a empezar."
   },
   "error": {
-    "message": "Lo siento, pero no reconozco “{{message}}”."
+    "message": "Lo siento, pero no reconozco \"{{message}}\"."
   }
 }
