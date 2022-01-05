@@ -124,12 +124,23 @@ module.exports = class Response {
     return response;
   }
 
-  static genNuxMessage(user) {
-    let welcome = this.genText(
-      i18n.__("bot.intro", {
-        userFirstName: user.firstName
-      })
-    );
+  static genNuxMessage(user, intro) {
+
+    let welcome;
+
+    if (intro) {
+      welcome = this.genText(
+        i18n.__("bot.intro", {
+          userFirstName: user.firstName
+        })
+      );
+    } else {
+      welcome = this.genText(
+        i18n.__("respuestas.saludo", {
+          userFirstName: user.firstName
+        })
+      );
+    }
 
     let guide = this.genText(i18n.__("bot.guia"));
 
@@ -151,8 +162,8 @@ module.exports = class Response {
         payload: "LINEA_ATENCION"
       },
       {
-        title: i18n.__("menu.menuPrincipal"),
-        payload: "MENU_PRINCIPAL"
+        title: i18n.__("menu.agente"),
+        payload: "AGENTE"
       },
       {
         title: i18n.__("menu.finalizarChat"),

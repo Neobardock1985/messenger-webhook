@@ -1,6 +1,6 @@
 {
   "bot": {
-    "intro": "¡Hola {{userFirstName}}! Soy Chad, tu bot inteligente.\n ¡Me encanta socializar! es por eso que estoy aquí para aclarar todas tus dudas y consultas sobre mi funcionamiento. \n Espero entenderte y ayudarte.",
+    "intro": "¡Hola {{userFirstName}}! Soy Chad, tu bot inteligente.\n¡Me encanta socializar! es por eso que estoy aquí para aclarar todas tus dudas y consultas sobre mi funcionamiento.\nEspero entenderte y ayudarte.",
     "guia": "Usa el menú que aparece a continuación cuando quieras para navegar por las funciones.",
     "ayuda": "¿Cómo puedo ayudarte?."
   },
@@ -8,17 +8,17 @@
     "soporte": "Soporte",
     "atencion": "Horario de atención",
     "informacion": "Más información",
-    "lineaAtencion": "¿Cuál es el número de la línea de atención?",
-    "principal": "Regresar al menú principal",
+    "lineaAtencion": "Línea de atención",
+    "principal": "Menú principal",
     "agente": "Hablar con un agente",
     "finalizarChat": "Finalizar chat"
   },
   "respuestas": {
-    "nuevaConsulta": "¿Deseas realizar otra consulta?",
-    "soporte": "Nuestro soporte estará en línea las 24 horas del día y los 7 días de la semana. \n ¿Deseas realizar otra consulta?",
-    "atencion": "Nuestro horario de atención es de 8:00 AM hasta las 12:00 PM Y de 1:00 PM hasta las 5:00 PM. \n ¿Deseas realizar otra consulta?.",
-    "informacion": "Sigue el siguiente enlace para tener más información https://ticservice.org/portal/ \n ¿Deseas realizar otra consulta?",
-    "lineaAtencion": "El número de la línea de atención es 3012345678 \n ¿Deseas consultar algo más?",
+    "saludo": "Hola, {{userFirstName}} ",
+    "soporte": "Nuestro soporte estará en línea las 24 horas del día y los 7 días de la semana.\n¿Deseas realizar otra consulta?",
+    "atencion": "Nuestro horario de atención es de 8:00 AM hasta las 12:00 PM Y de 1:00 PM hasta las 5:00 PM.\n¿Deseas realizar otra consulta?.",
+    "informacion": "Sigas el siguiente enlace para tener más información https://ticservice.org/portal/\n¿Deseas realizar otra consulta?",
+    "lineaAtencion": "El número de la línea de atención es 3012345678\n¿Deseas realizar otra consulta?",
     "agente": "En un momento uno de nuestros agentes lo atenderá",
     "finalizarChat": "Hasta luego, fue un placer ayudarte."
   },

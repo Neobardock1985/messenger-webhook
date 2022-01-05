@@ -81,7 +81,7 @@ module.exports = class Receive {
       (greeting && greeting.confidence > 0.8) ||
       message.includes("empezar")
     ) {
-      response = Response.genNuxMessage(this.user);
+      response = Response.genNuxMessage(this.user, true);
     } else {
       response = [
         Response.genText(
@@ -183,7 +183,7 @@ module.exports = class Receive {
     // Set the response based on the payload
     if (payload === "MENU_PRINCIPAL") {
 
-      response = Response.genNuxMessage(this.user);
+      response = Response.genNuxMessage(this.user, false);
 
     } else if (payload.includes("SOPORTE") || payload.includes("ATENCION") ||
       payload.includes("INFORMACION") || payload.includes("LINEA_ATENCION") ||

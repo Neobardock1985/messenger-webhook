@@ -159,8 +159,8 @@ module.exports = class Profile {
           payload: "LINEA_ATENCION"
         },
         {
-          title: i18n.__("menu.menuPrincipal"),
-          payload: "MENU_PRINCIPAL"
+          title: i18n.__("menu.agente"),
+          payload: "AGENTE"
         },
         {
           title: i18n.__("menu.finalizarChat"),
